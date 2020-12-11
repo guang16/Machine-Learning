@@ -8,21 +8,9 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
-# import the CSV
-white_wines = pd.read_csv('winequality-white.csv')
+from PreProcess import processFile
 
-# pre-processing the data, include checking entries, features, checking null values.
-# #print(white_wines.shape)
-# white_wines.head()
-# white_wines.isnull().any()
-# white_wines.describe()
-
-# Check to see if data under residual sugar has outlier, because max = 65.8, min = 0.6 and avg = 6.39
-# sns.boxplot(white_wines['residual sugar'])
-
-# Use Z-Score to remove the outlier and check the remaining entries to be (4487)
-z = np.abs(stats.zscore(white_wines))
-white_wines = white_wines[(z < 3).all(axis=1)]
+white_wines = processFile('winequality-white.csv')
 
 # Define features X
 X = np.asarray(white_wines.iloc[:, :-1])
