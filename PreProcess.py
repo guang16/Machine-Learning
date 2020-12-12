@@ -8,10 +8,10 @@ def processFile(input):
     file = pd.read_csv(input)
 
     # pre-processing the data, include checking entries, features, checking null values.
-    # print(input.shape)
-    # file.head()
-    # file.isnull().any()
-    # file.describe()
+    print(input.shape)
+    file.head()
+    file.isnull().any()
+    file.describe()
 
     # Check to see if data under residual sugar has outlier, because max = 65.8, min = 0.6 and avg = 6.39
     # sns.boxplot(file['residual sugar'])
