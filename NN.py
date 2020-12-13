@@ -20,7 +20,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_
 
 
 def do_work(hiddenLayer, activation):
-    clf = MLPClassifier(hidden_layer_sizes=hiddenLayer, activation=activation, random_state=1, max_iter=3000)
+    clf = MLPClassifier(hidden_layer_sizes=hiddenLayer, activation=activation, random_state=1, max_iter=10000)
     clf.fit(X_train, y_train)
     # Test out-of-sample test set
     y_pred = clf.predict(X_test)
@@ -42,6 +42,10 @@ print('1 layer, 100 hidden nodes, RELU activation function')
 do_work(100, 'relu')
 print('End Scenario 2')
 
-print('3 Layer, 100 hidden nodes, logistic activation function')
+print('3 Layer, 100 hidden nodes each, logistic activation function')
 do_work((100, 100, 100), 'logistic')
 print('End Scenario 3')
+
+print('3 Layer, 10 hidden nodes each, logistic activation function')
+do_work((10, 10, 10), 'logistic')
+print('End Scenario 4')

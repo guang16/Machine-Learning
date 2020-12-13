@@ -56,14 +56,8 @@ def dowork(kvalue):
     print('roc_auc_score', roc_auc_score(y_test, knn.predict_proba(X_test), multi_class='ovr'))
 
 
-print('------------------- begin k = 17')
-dowork(17)
-print('-------------------- end k = 17')
+print('------------------- begin k = 19')
+dowork(19)
+print('-------------------- end k = 19')
 
-print('------------------- begin k = 18')
-dowork(18)
-print('-------------------- end k = 18')
 
-print('------------------- begin k = 25')
-dowork(25)
-print('-------------------- end k = 25')
